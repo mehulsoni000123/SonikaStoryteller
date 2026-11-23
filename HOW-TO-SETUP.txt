@@ -1,0 +1,43 @@
+SONIKA STORYTELLER  -  HOW TO SET UP
+====================================
+Reads your script aloud in YOUR OWN cloned voice, fully offline on your PC,
+using the open-source Chatterbox model. English and Hindi lines are detected
+automatically. Nothing is uploaded: it only runs on 127.0.0.1.
+By Mehul Soni (@mehuledits.ai)
+
+THIS IS A DEVELOPER-STYLE APP
+There is no installer. You need Windows, Python 3.11, and ideally an NVIDIA
+graphics card (it also runs on CPU but is much slower).
+
+SETUP
+1. Download the code: on https://github.com/mehulsoni000123/SonikaStoryteller
+   click the green "Code" button > "Download ZIP". Extract it, for example to
+   C:\Apps\SonikaStoryteller.
+2. Install Python 3.11 from https://python.org (tick "Add python to PATH").
+3. Open PowerShell in the folder and run, one line at a time:
+      python -m venv venv
+      venv\Scripts\activate
+      pip install chatterbox-tts fastapi uvicorn soundfile numpy
+   If you have an NVIDIA card, install the CUDA version of PyTorch first
+   (see https://pytorch.org for the exact command).
+4. Add YOUR voice: record 10 to 30 seconds of clean speech (no music) and save
+   it as   voices\Mehul.wav   (the app shows it as "My voice").
+   For Hindi, also add   voices\Mehul Hindi.wav
+5. Tell the launcher where Python is. In PowerShell:
+      setx SONIKA_PYTHON "C:\Apps\SonikaStoryteller\venv\Scripts\python.exe"
+   (use your real path), then close and reopen PowerShell.
+6. Double-click "Sonika Storyteller.vbs". The first start downloads the voice
+   model, which takes a few minutes. The app opens in a Chrome app window.
+
+USE
+- Paste your script, press Play. It reads it aloud in your voice.
+- Export saves audio to  Videos\Sonika-Storyteller
+  (change with the SONIKA_EXPORT_DIR environment variable).
+
+IMPORTANT
+Only clone your own voice, or a voice you have clear permission to use.
+Chatterbox and its model have their own licences.
+
+SOURCE CODE AND HELP
+https://github.com/mehulsoni000123/SonikaStoryteller
+Questions or bugs: message @mehuledits.ai on Instagram.
